@@ -11,7 +11,7 @@ describe('seal', function() {
 
     before(function() {
       keying = sinon.spy(function(q, cb){
-        return cb(null, [ { secret: 'RS1-12abcdef7890' } ]);
+        return cb(null, [ { secret: '12abcdef7890abcdef7890abcdef7890' } ]);
       });
       
       seal = setup(keying);
@@ -36,8 +36,8 @@ describe('seal', function() {
         var call = keying.getCall(0);
         expect(call.args[0]).to.deep.equal({
           recipient: undefined,
-          usage: 'encrypt',
-          algorithms: [ 'aes128-cbc' ]
+          usage: 'deriveKey',
+          algorithms: [ 'pbkdf2' ]
         });
       });
       
@@ -49,7 +49,7 @@ describe('seal', function() {
       describe('verifying token', function() {
         var claims;
         before(function() {
-          var decrypted = RNCryptor.Decrypt(token, 'RS1-12abcdef7890');
+          var decrypted = RNCryptor.Decrypt(token, '12abcdef7890abcdef7890abcdef7890');
           claims = JSON.parse(decrypted.toString());
         });
         
