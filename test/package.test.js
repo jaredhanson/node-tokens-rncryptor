@@ -8,7 +8,7 @@ describe('tokens-rncryptor', function() {
   
   it('should export functions', function() {
     expect(pkg.seal).to.be.a('function');
-    //expect(pkg.unseal).to.be.a('function')
+    expect(pkg.unseal).to.be.a('function')
   });
   
 });
