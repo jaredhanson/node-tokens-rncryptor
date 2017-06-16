@@ -162,6 +162,7 @@ describe('seal', function() {
         expect(token.substr(0, 1)).to.equal('A');
       });
       
+      // TODO: Implement decrypting using key-based decryption
       /*
       describe('verifying token', function() {
         var claims;
