@@ -163,8 +163,7 @@ describe('seal', function() {
       });
       
       // TODO: Implement decrypting using key-based decryption
-      /*
-      describe('verifying token', function() {
+      describe.skip('verifying token', function() {
         var claims;
         before(function() {
           var decrypted = RNCryptor.Decrypt(token, 'API-12abcdef7890abcdef7890abcdef');
@@ -176,9 +175,8 @@ describe('seal', function() {
           expect(claims.foo).to.equal('bar');
         });
       });
-      */
     }); // encrypting to audience in key-based mode
     
   }); // using defaults
   
-});
+}); // seal
